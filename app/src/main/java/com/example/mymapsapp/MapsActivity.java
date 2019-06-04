@@ -7,6 +7,7 @@ import android.os.Bundle;
 
 import android.support.v4.app.ActivityCompat;
 import android.util.Log;
+import android.view.View;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -65,5 +66,14 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED)
             mMap.setMyLocationEnabled(true);
 
+    }
+
+    public void changeView(View view) {
+        if (mMap.getMapType() != mMap.MAP_TYPE_SATELLITE)
+        {
+            mMap.setMapType(mMap.MAP_TYPE_SATELLITE);
+        }
+        else
+            mMap.setMapType(mMap.MAP_TYPE_NORMAL);
     }
 }
